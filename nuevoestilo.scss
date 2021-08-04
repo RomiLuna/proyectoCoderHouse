@@ -1,0 +1,152 @@
+h1{
+    text-align: center;
+    font-size: 50px;
+    text-transform: uppercase;
+    color:rosybrown;
+    text-shadow: 5px 5px 10px #333;
+    font-family: sans-serif;
+}
+
+//sass nos permite la incorporacion sencilla de operaciones matematicas
+//operadores - inicio
+$ancho: 720px;
+$alto: 200px;
+
+$var1: 100%;
+$var2: 50%;
+
+$blue: #4285F4;
+$green: #33D374;
+$red: #dd0735;
+$black: rgb(87, 53, 53);
+$white: rgb(172, 162, 162);
+
+$xs: 15px;
+$small: 20px;
+$med: 40px;
+$large: 60px;
+$xl: 80px;
+
+
+p{
+        height: $alto;
+    width: $ancho;
+    background-color: $red;
+    font-size: $large;
+    text-align: center;
+    
+}
+
+
+
+
+
+
+$img1: alfajores;
+$img2: torta;
+$img3:budin;
+
+
+
+ //otro ejemplo de bucle for
+
+  @for $in from 1 through 3 {
+
+      .bucle-#{$in}{
+          width: $ancho * $in;
+          height: $alto;
+          background-color: purple;
+          border: 2px solid #333;
+      }
+
+  }
+
+
+  $base-color: #036;
+  $base-color: #3ff;
+
+
+@for $in from 1 through 5 {
+    .bucle-#{$in}{
+    background-color: lighten($base-color, $in * 10%);
+    background-color: darken($base-color, $in * 10%);
+  }
+}
+
+//bucles - fin
+
+
+//each - inicio
+
+.alfajores, .torta, .budin{
+    height: 250px;
+    width: 400px;
+    border: 2px solid #333;
+}
+
+
+@each $receta in alfajores , torta , budin {
+    .#{$receta} { 
+         
+          background-image: url("./multimedia/imagenes/#{$receta}.jpg");
+          background-size: cover;
+          background-position: center;
+     }
+ }
+
+ 
+
+  $colores: red , blue , orange;
+
+  @each $color in $colores {
+      .color-#{$color}  {
+        border-color: $color;
+        color: $color;
+        background-color: $color;
+        font-size: 60px;
+        text-shadow: 5px 5px 5px #fff;
+        border: 2px solid;
+        height: 200px;
+        width: 600px;
+      }
+    }
+  
+
+
+
+//maps - incio
+
+ $redes: ( /*Declaramos nuestro mapa*/
+        red1: #55acee,
+        red2:  #3a5795,
+        red3: #C25E30
+); 
+/*Creamos el bucle para usar los valores del mapa*/
+@each $red, $color in $redes {
+   .btn--#{$red} a {
+       background-color: $color;
+       height: 200px;
+       width: 300px;
+       border: 2px solid #333;
+       text-align: center;
+       font-size: 50px;
+       line-height: 200px;
+       color: #fff;
+       text-transform: uppercase;
+   }
+}
+//maps -fin
+
+
+//whilleee - inicio
+
+.whi{
+    height: 200px;
+    background-color: palegreen;
+    width: 500px;
+    border: 2px solid #ccc;
+
+}
+
+//whillee - fin
+
